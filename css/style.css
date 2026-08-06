@@ -75,9 +75,8 @@ button{ font-family: inherit; }
 .nav-inner{ max-width: 1240px; margin:0 auto; padding: 16px 32px; display:flex; align-items:center; justify-content:space-between; }
 .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color: var(--navy); }
 .brand-mark{
-  width:36px; height:36px; border-radius: 10px; background: linear-gradient(135deg, var(--coral), var(--gold));
-  color:#fff; font-family: var(--serif); font-weight:700; font-size: .95rem;
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  width:40px; height:40px; border-radius: 50%; flex-shrink:0; object-fit: cover;
+  box-shadow: 0 2px 8px rgba(27,42,74,.18);
 }
 .brand-text{ font-family: var(--serif); font-weight:600; font-size: 1.05rem; line-height:1.1; }
 .brand-text em{ display:block; font-style:normal; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color: var(--ink-soft); font-family: var(--sans); font-weight:600; }
@@ -110,6 +109,7 @@ button{ font-family: inherit; }
     var(--bg);
 }
 .hero-inner{ max-width: 780px; }
+.hero-badge{ width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 24px; display:block; box-shadow: 0 12px 34px -12px rgba(27,42,74,.35); }
 .eyebrow{ text-transform: uppercase; letter-spacing:.22em; font-size:.78rem; font-weight:700; color: var(--coral); margin-bottom: 18px; }
 .hero h1{ font-size: clamp(2.4rem, 6vw, 4.4rem); letter-spacing:-.01em; }
 .hero h1 .hl{ color: var(--coral); font-style: italic; }
@@ -248,7 +248,6 @@ button{ font-family: inherit; }
 /* ---------- footer ---------- */
 .site-footer{ background: var(--navy-deep); color: rgba(245,239,228,.7); padding: 60px 0 36px; }
 .footer-inner{ display:flex; flex-direction:column; align-items:flex-start; gap: 16px; }
-.footer-brand .brand-mark{ background: linear-gradient(135deg, var(--coral), var(--gold)); }
 .footer-brand .brand-text{ color: #F5EFE4; }
 .footer-brand .brand-text em{ color: rgba(245,239,228,.55); }
 .footer-copy{ font-size:.9rem; }
