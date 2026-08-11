@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rkahn8-del.github.io/thirdparent/sitemap.xml

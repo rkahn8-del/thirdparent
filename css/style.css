@@ -231,7 +231,7 @@ button{ font-family: inherit; }
 .research-body p{ color: var(--ink-soft); font-size: 1.04rem; }
 .research-body strong{ color: var(--navy); }
 .sources{ margin-top: 44px; border-top:1px solid var(--line); padding-top: 30px; }
-.sources h4{ font-size:.85rem; text-transform:uppercase; letter-spacing:.08em; color: var(--navy); margin-bottom:12px; }
+.sources h3{ font-size:.85rem; text-transform:uppercase; letter-spacing:.08em; color: var(--navy); margin-bottom:12px; }
 .sources ul{ color: var(--ink-soft); font-size: .92rem; }
 
 /* ---------- newsletter ---------- */
