@@ -48,18 +48,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.15 });
   revealEls.forEach(el => revealObserver.observe(el));
 
-  /* ---------- funnel bars fill-in ---------- */
-  const funnel = document.getElementById('funnel');
-  if (funnel) {
-    const funnelObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          funnel.classList.add('in');
-          funnelObserver.unobserve(funnel);
-        }
-      });
-    }, { threshold: 0.25 });
-    funnelObserver.observe(funnel);
+  /* ---------- chart fill-in animations ---------- */
+  const chartTriggers = ['#timeline', '#funnelChart', '.bar-block'];
+  const chartObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        chartObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
+  chartTriggers.forEach(sel => document.querySelectorAll(sel).forEach(el => chartObserver.observe(el)));
+
+  /* ---------- pictogram grid (14 of 100 highlighted) ---------- */
+  const pictogram = document.getElementById('pictogram');
+  if (pictogram) {
+    const total = 100, hits = 14;
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('span');
+      if (i < hits) dot.classList.add('hit');
+      pictogram.appendChild(dot);
+    }
   }
 
   /* ---------- count-up stats ---------- */
@@ -86,17 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.6 });
   counters.forEach(c => countObserver.observe(c));
-
-  /* ---------- resources sub-tabs ---------- */
-  const resMenuItems = document.querySelectorAll('.res-menu-item');
-  const resPanels = document.querySelectorAll('.res-panel');
-  resMenuItems.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.getAttribute('data-res');
-      resMenuItems.forEach(b => b.classList.toggle('active', b === btn));
-      resPanels.forEach(p => p.classList.toggle('active', p.getAttribute('data-panel') === target));
-    });
-  });
 
   /* ---------- newsletter issue accordion ---------- */
   document.querySelectorAll('.issue-head').forEach(head => {
